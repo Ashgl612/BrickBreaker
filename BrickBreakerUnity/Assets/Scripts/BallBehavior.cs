@@ -2,20 +2,18 @@ using UnityEngine;
 
 public class BallBehavior : MonoBehaviour
 {
-    public float Speed = 5.0f ;
-    Vector2 direction;
+    public float LaunchForce = 3.0f;
+    private Rigidbody2D _rb;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-         direction.x = Random.value > 0.5f ? 1 : -1;
-         direction.y = Random.value > 0.5f ? 1 : -1;
-    }
+        _rb = GetComponent<Rigidbody2D>();
 
-    // Update is called once per frame
-    void Update()
-    {
-         Vector3 movement = direction * Speed * Time.deltaTime;
-        transform.Translate(movement);
+        Vector2 direction = new Vector2(
+            Random.value > 0.5f ? 1 : -1,
+            Random.value > 0.5f ? 1 : -1
+        ).normalized;
+
+        _rb.AddForce(direction * LaunchForce, ForceMode2D.Impulse);
     }
 }
