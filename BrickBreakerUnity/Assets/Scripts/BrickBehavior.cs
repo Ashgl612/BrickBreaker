@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class BrickBehavior : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ball"))
         {
@@ -10,4 +10,3 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 }
-
