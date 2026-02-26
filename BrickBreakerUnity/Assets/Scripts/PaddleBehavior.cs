@@ -16,10 +16,13 @@ public class PaddleBehavior : MonoBehaviour
 
     private void Update()
     {
+        if (GameBehavior.Instance.GameMode == Utilities.GameState.Play)
+        {
         _direction = 0.0f;
 
         if (Input.GetKey(_leftKey)) { _direction -= 1.0f;}
         if (Input.GetKey(_rightKey)) { _direction += 1.0f;}
+        }
     }
 
     private void FixedUpdate()
